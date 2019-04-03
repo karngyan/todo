@@ -2,15 +2,42 @@
 
 {% block content %}
 	{% if item %}
+<!-- 	<form class="form-inline my-2 my-lg-0" method="POST">
+	{% csrf_token %}
+	  <input class="form-control mr-sm-2" type="search" placeholder="{{ item.item }}" 
+	  value="{{ item.item }}" aria-label="Search" name="item">
+
+	  <input type="hidden" value="{{ item.completed }}" name="completed">
+
+	  <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Edit Item</button>
+	</form> -->
+
 	<form class="form-inline my-2 my-lg-0" method="POST">
 	{% csrf_token %}
 	  <input class="form-control mr-sm-2" type="search" placeholder="{{ item.item }}" 
 	  value="{{ item.item }}" aria-label="Search" name="item">
-	   
+
 	  <input type="hidden" value="{{ item.completed }}" name="completed">
+
+
+	              <div class="form-group">
+	                  <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+	                      <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2" name="date_time" 
+	                      placeholder="{{ item.date_time }}" value="{{ item.date_time }}" />
+	                      <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+	                          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+	                      </div>
+	                  </div>
+	              </div>
+	          <script type="text/javascript">
+	              $(function () {
+	                  $('#datetimepicker2').datetimepicker();
+	              });
+	          </script>
 
 	  <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Edit Item</button>
 	</form>
+
 
 	{% endif %}
 
